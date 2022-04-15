@@ -1,28 +1,24 @@
-
-
 """
- 飞正方形（速度控制）
+ square flight
  """
 import airsim
 import time
+# connect to the AirSim simulator
+client = airsim.MultirotorClient()
 
-client = airsim.MultirotorClient()  # connect to the AirSim simulator
-client.enableApiControl(True)       # 获取控制权
-client.armDisarm(True)              # 解锁
-client.takeoffAsync().join()        # 第一阶段：起飞
+client.enableApiControl(True)   # get control
+client.armDisarm(True)          # unlock
+client.takeoffAsync().join()    # takeoff
 
-client.moveToZAsync(-2, 1).join()   # 第二阶段：上升到2米高度
+# square flight
+client.moveToZAsync(-3, 10).join()               # 上升到3m高度
+client.moveToPositionAsync(5, 0, -3, 10).join()  # 飞到（5,0）点坐标
+client.moveToPositionAsync(5, 5, -3, 10).join()  # 飞到（5,5）点坐标
+client.moveToPositionAsync(0, 5, -3, 30).join()  # 飞到（0,5）点坐标
+client.moveToPositionAsync(100, 100, -3, 50).join()  # 飞到（0,5）点坐标
+client.moveToPositionAsync(0, 0, -3, 40).join()  # 回到（0,0）点坐标
 
- # 飞正方形
-client.moveByVelocityZAsync(10, 0, -2, 8).join()     # 第三阶段：以1m/s速度向前飞8秒钟
-client.moveByVelocityZAsync(-10, 0, -2, 8).join()    # 第三阶段：以1m/s速度向后飞8秒钟
-client.moveByVelocityZAsync(0, -10, -2, 8).join()    # 第三阶段：以1m/s速度向左飞8秒钟
-
- # 悬停 2 秒钟
-client.hoverAsync().join()          # 第四阶段：悬停6秒钟
-time.sleep(6)
-
-client.landAsync().join()           # 第五阶段：降落
-client.armDisarm(False)             # 上锁
-client.enableApiControl(False)      # 释放控制权
+client.landAsync().join()       # land
+client.armDisarm(False)         # lock
+client.enableApiControl(False)  # release control
 

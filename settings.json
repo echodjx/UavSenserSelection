@@ -1,0 +1,35 @@
+{
+  "SeeDocsAt": "https://github.com/Microsoft/AirSim/blob/master/docs/settings.md",
+  "SettingsVersion": 1.2,
+  "SimMode": "Multirotor",
+  "TimeOfDay": {
+    "Enabled": false,
+    "StartDateTime": "",
+    "CelestialClockSpeed": 1,
+    "StartDateTimeDst": false,
+    "UpdateIntervalSecs": 60
+  },
+  "Recording": {
+    "RecordOnMove": false,
+    "RecordInterval": 0.1,
+    "Folder": "",
+    "Enabled": false,
+    "Cameras": [
+      {
+        "CameraName": "0",
+        "ImageType": 0,
+        "PixelsAsFloat": false,
+        "Compress": true
+      }
+    ]
+  },
+  "Vehicles": {
+    "UAV1": {
+      "VehicleType": "SimpleFlight",
+      "X": 0,
+      "Y": 0,
+      "Z": 0,
+      "Yaw": 0
+    }
+  }
+}

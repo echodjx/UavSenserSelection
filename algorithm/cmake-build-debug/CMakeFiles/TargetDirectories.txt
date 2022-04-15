@@ -1,3 +1,0 @@
-C:/Users/djx/Desktop/UavSenserSelection/algorithm/cmake-build-debug/CMakeFiles/UavSenserSelection.dir
-C:/Users/djx/Desktop/UavSenserSelection/algorithm/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/djx/Desktop/UavSenserSelection/algorithm/cmake-build-debug/CMakeFiles/rebuild_cache.dir
